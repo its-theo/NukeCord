@@ -1,6 +1,6 @@
 print("[~] Do nc!duck to get all commands")
-import nextcord as discord 
-from nextcord.ext import commands
+import discord 
+from discord.ext import commands
 import json, os
 bot = commands.Bot(command_prefix="nc!")
 bot.remove_command("help")
