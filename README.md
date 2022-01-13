@@ -13,6 +13,8 @@ The nuke bot is being controlled directly in the discord client.
 
 Just fill out your information in `config.json`, run `pip install -r requirements.txt` and then run the `main.py` file :)
 
+I do not take any responsibility for termination or nuked serves.
+
 > __**FAQ**__ ❓
 > 
 > **Can I use a discord account token?** No, this is not a selfbot.
