@@ -11,7 +11,11 @@ The nuke bot is being controlled directly in the discord client.
 
 ☣️ Never use a bot created on your main account to avoid the risk of getting termed
 
-Just fill out your information in `config.json`, run `pip install -r requirements.txt` and then run the `main.py` file :)
+1. Fill out the required information in `config.json`. 
+
+2. If you are using Windows, run `run.bat` to start the nuker. If you are a Linux run `bash run.sh` in the console, for MacOS do `sh run.sh`.
+
+3. NukeCord is ready
 
 I do not take any responsibility for termination or nuked serves.
 
