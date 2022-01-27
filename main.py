@@ -72,7 +72,7 @@ async def ban(ctx):
     
 @bot.command()
 @commands.guild_only()
-async def ban(ctx, *, arg):
+async def nicknames(ctx, *, arg):
     if ctx.author.id == ID:
         for member in ctx.guild.members:
             try:
