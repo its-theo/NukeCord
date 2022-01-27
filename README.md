@@ -11,11 +11,13 @@ The nuke bot is being controlled directly in the discord client.
 
 ☣️ Never use a bot created on your main account to avoid the risk of getting termed
 
-1. Fill out the required information in `config.json`. 
+1. Create a bot, enable member intents and copy the token
 
-2. If you are using Windows, run `run.bat` to start the nuker. If you are a Linux run `bash run.sh` in the console, for MacOS do `sh run.sh`.
+2. Fill out the required information in `config.json`. 
 
-3. NukeCord is ready
+3. If you are using Windows, run `run.bat` to start the nuker. If you are a Linux run `bash run.sh` in the console, for MacOS do `sh run.sh`.
+
+4. NukeCord is ready
 
 I do not take any responsibility for termination or nuked serves.
 
