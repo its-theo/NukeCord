@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix="nc!", intents=intents)
 bot.remove_command("help")
 f = open("config.json", "r")
 x = f.read()
-y = json.loads(x)n
+y = json.loads(x)
 TOKEN = y["token"]
 O = y["your_id"]
 ID = int(O)
