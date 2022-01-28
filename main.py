@@ -70,7 +70,7 @@ async def ban(ctx):
                 await member.ban(reason=None)
             except:
                 print("\n")
-         await msg.add_reaction("✅")
+        await msg.add_reaction("✅")
     else:
         return
     
@@ -86,7 +86,7 @@ async def nicknames(ctx, *, arg):
                 await member.edit(nick=arg)
             except:
                 print("\n")
-         await msg.add_reaction("✅")
+        await msg.add_reaction("✅")
     else:
         return    
             
@@ -117,7 +117,7 @@ async def dm(ctx, *, arg):
                 await member.send(arg)
             except:
                 print(f"[!] Failed to DM {member}")
-         await msg.add_reaction("✅")
+        await msg.add_reaction("✅")
         
 
 bot.run(TOKEN)
