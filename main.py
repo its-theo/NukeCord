@@ -1,4 +1,5 @@
 print("[!] Don't forget to fill out the information in config.json")
+input("[!] Make sure that the server member intent is activated")
 print("[~] Do nc!duck to get all commands")
 import discord 
 from discord.ext import commands
@@ -17,7 +18,7 @@ ID = int(O)
 
 @bot.event 
 async def on_ready():
-    print(f"[!] Logged in as {bot.user}")
+    print(f"[~] Logged in as {bot.user}")
 
 
 @bot.command()
@@ -44,6 +45,7 @@ async def nuke(ctx, *, arg):
         while x >= 0:
             await ctx.guild.create_text_channel(arg)
             x = int(x) -1
+        print(f"[~] Nuked {ctx.guild.name}")
 
 @bot.command()
 @commands.guild_only()
