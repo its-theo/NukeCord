@@ -1,5 +1,5 @@
 print("[!] Don't forget to fill out the information in config.json")
-input("[!] Make sure that the server member intent is activated")
+input("[!] Make sure that the server member intent is activated. Press enter when ready. ")
 print("[~] Do nc!duck to get all commands")
 import discord 
 from discord.ext import commands
