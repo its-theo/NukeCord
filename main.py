@@ -24,7 +24,7 @@ async def on_ready():
 @bot.command()
 async def duck(ctx):
     if ctx.author.id == ID:
-        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text> | Nukes current server with text\nnc!spam <text> | Spams all channels including ping\nnc!ban | Bans everyone\nnc!nicknames <text> | Changes everyone's nicknames\nnc!roles <text> | Messes up the roles\nnc!dm <text> | DMs all members\n```", color=0x36393e)
+        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text>\nnc!spam <text>\nnc!ban\nnc!nicknames <text>\nnc!roles <text>\nnc!dm <text>\n```", color=0x36393e)
         embed.set_thumbnail(url="https://i.vgy.me/8LslSF.png")
         await ctx.send(embed=embed)
 
