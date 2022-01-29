@@ -67,7 +67,10 @@ async def ban(ctx):
         await msg.add_reaction("🔄")
         for member in ctx.guild.members:
             try:
-                await member.ban(reason=None)
+                if member == ctx.author:
+                    return
+                else:
+                    await member.ban(reason=None)
             except:
                 print("\n")
         await msg.add_reaction("✅")
