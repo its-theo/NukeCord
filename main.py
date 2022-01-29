@@ -98,7 +98,10 @@ async def roles(ctx, *, arg):
         msg = ctx.message
         await msg.add_reaction("🔄")
         for role in ctx.guild.roles:
-            await role.delete()
+            try:
+                await role.delete()
+            except:
+                print("\n")
         x = 30
         guild = ctx.guild
         while x >= 0:
