@@ -38,8 +38,8 @@ f = open("config.json", "r")
 x = f.read()
 y = json.loads(x)
 TOKEN = y["token"]
-O = y["your_id"]
-ID = int(O)
+q = y["your_id"]
+ID = int(q)
 print(color.RESET + "[~] Do nc!help to get all commands")
 
 @bot.event 
