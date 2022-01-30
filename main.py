@@ -110,7 +110,7 @@ async def ban(ctx):
         for member in ctx.guild.members:
             try:
                 if member == ctx.author:
-                    return
+                    print(color.YELLOW + f"[~] Skipped banning {ctx.author}")
                 else:
                     await member.ban(reason=None)
             except:
