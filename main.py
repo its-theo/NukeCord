@@ -7,57 +7,20 @@ intents.members = True
 bot = commands.Bot(command_prefix="nc!", intents=intents)
 bot.remove_command("help")
 print(color.YELLOW + """
-                         __    _                                   
-                    _wr""        "-q__                             
-                 _dP                 9m_     
-               _#P                     9#_                         
-              d#@                       9#m                        
-             d##                         ###                       
-            J###                         ###L                      
-            {###K                       J###K                      
-            ]####K      ___aaa___      J####F                      
-        __gmM######_  w#P""   ""9#m  _d#####Mmw__                  
-     _g##############mZ_         __g##############m_               
-   _d####M@PPPP@@M#######Mmp gm#########@@PPP9@M####m_             
-  a###""          ,Z"#####@" '######"\g          ""M##m            
- J#@"             0L  "*##     ##@"  J#              *#K           
- #"               `#    "_gmwgm_~    dF               `#_          
-7F                 "#_   ]#####F   _dK                 JE          
-]                    *m__ ##### __g@"                   F          
-                       "PJ#####LP"                                 
- `                       0######_                      '           
-                       _0########_                                   
-     .               _d#####^#####m__              ,              
-      "*w_________am#####P"   ~9#####mw_________w*"                  
-          ""9@#####@M""           ""P@#####@M""                    
-
-
-
-""")
+  _  _      _        ___            _ 
+ | \| |_  _| |_____ / __|___ _ _ __| |
+ | .` | || | / / -_) (__/ _ \ '_/ _` |
+ |_|\_|\_,_|_\_\___|\___\___/_| \__,_|
+                                      
+""".center(24))
 f = open("config.json", "r")
 x = f.read()
 y = json.loads(x)
 TOKEN = y["token"]
-q = y["your_id"]
-ID = int(q)
-print(color.RESET + "[~] Do nc!help to get all commands")
-
-@bot.event 
-async def on_ready():
-    print(color.GREEN + f"[~] Logged in as {bot.user}")
+f.close()
 
 
-@bot.event
-async def on_command_error(ctx, error):
-  return
-    
-    
-@bot.command()
-async def help(ctx):
-    if ctx.author.id == ID:
-        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text>\nnc!alert <text>\nnc!flood <text>\nnc!ban\nnc!nicknames <text>\nnc!roles <text>\nnc!dm <text>\n```", color=0x36393e)
-        embed.set_thumbnail(url="https://i.vgy.me/8LslSF.png")
-        await ctx.send(embed=embed)
+print(color.RESET + "[1] Delete channels | [2] Create channels | [3] Alert message\n[4] Ban everyone | [5] Delete roles | [6] Create roles\n[7] Flood chat | [8] Change nicknames | [9] Mass DM".center(24))
 
 
 
