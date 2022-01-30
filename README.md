@@ -21,6 +21,28 @@ The nuke bot is being controlled directly in the discord client.
 
 I do not take any responsibility for termination or nuked serves.
 
+
+**Quick usage guide:**
+
+First of all, make sure that the bot has admin rights and its role is above the normal member role.
+
+To nuke a server, do `nc!nuke <text>`. You need to replace the `<text>` placeholder with whatever text you want, for example `nc!nuke don't mess with me`.
+
+To flood a channel, you can use `nc!flood <text>`. Again, text is a required argument.
+
+If you want to alert a message to every channel, use `nc!alert <text>`.
+
+To DM all members of the current server, use `nc!dm <text>`.
+
+There are some other features, like the role mess-up, the ban-all and the nickname changer.
+
+To change everyone's nickname, use `nc!nicknames <text>`. 
+
+If you want to ban everyone, use `nc!ban`.
+
+And last but not least: If you'd like to mess up the roles do `nc!roles <text>`.
+
+
 > __**FAQ**__ ❓
 > 
 > **Can I use a discord account token?** No, this is not a selfbot.
