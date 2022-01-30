@@ -47,6 +47,11 @@ async def on_ready():
     print(color.GREEN + f"[~] Logged in as {bot.user}")
 
 
+@bot.event
+async def on_command_error(ctx, error):
+  return
+    
+    
 @bot.command()
 async def help(ctx):
     if ctx.author.id == ID:
