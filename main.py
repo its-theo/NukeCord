@@ -146,7 +146,10 @@ async def roles(ctx, *, arg):
         await msg.add_reaction("🔄")
         for role in ctx.guild.roles:
             try:
-                await role.delete()
+                if role.name == bot.user.name:
+                  print(color.YELLOW + f"[~] Skipped deleting role {bot.user.name}")
+                else:
+                  await role.delete()
             except:
                 print(color.RED + f"[!] Failed to delete {role.name}")
         x = 100
