@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import json, os
 from colorama import Fore as color
+from colorama import init
+init()
 intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix="nc!", intents=intents)
