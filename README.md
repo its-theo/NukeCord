@@ -40,7 +40,6 @@ To change everyone's nickname, use `nc!nicknames <text>`.
 
 If you want to ban everyone, use `nc!ban`.
 
-To clear all emojis do `nc!emojis`.
 
 And last but not least: If you'd like to mess up the roles do `nc!roles <text>`.
 
