@@ -3,6 +3,8 @@ An advanced discord server nuker
 
 <img src="https://i.vgy.me/8LslSF.png" alt="NukeCord Logo">
 
+❗ This bot may not be working anymore, it will be fixed soon ❗
+
 ❗ For educational purposes only - Do not nuke innocent servers!
 
 The nuke bot is being controlled directly in the discord client.
