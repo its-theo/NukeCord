@@ -89,7 +89,9 @@ async def alert(ctx, *, arg):
             if type(channel) != discord.channel.TextChannel:
                 print("\n")
             else:
-                await channel.send(f"{arg} | @everyone")
+                await channel.send(f"{arg}")
+                await channel.send(f"{arg}")
+                await channel.send(f"{arg}")
                 
                 
 @bot.command()
