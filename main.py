@@ -1,4 +1,4 @@
-import discord
+import discord, requests
 from discord.ext import commands
 import json, os
 from colorama import Fore as color
