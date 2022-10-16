@@ -12,12 +12,11 @@ bot.remove_command("help")
 w = requests.get("https://scriptkid-database.glitch.me/passes/nukecord.htm")
 e = w.text
 q = input(color.RESET + "Type in your access key: ")
-if q == w.text:
-  #ok
-else:
+if q != w.text:
   print(color.RED + "Access key denied. Please ensure that your internet connection is stable and double check if you are using the latest key.")
   wait(7)
   sys.exit()
+  
   
 print(color.YELLOW + """
                          __    _                                   
