@@ -4,6 +4,7 @@ import json, os
 from time import sleep as wait
 from colorama import Fore as color
 from colorama import init
+from console.utils import set_title
 init()
 intents = discord.Intents.default()
 intents.members = True
@@ -13,11 +14,11 @@ w = requests.get("https://scriptkid-database.glitch.me/passes/nukecord.htm")
 e = w.text
 q = input(color.RESET + "Type in your access key: ")
 if q != w.text:
-  print(color.RED + "Access key denied. Please ensure that your internet connection is stable and double check if you are using the latest key.")
-  wait(7)
+  print(color.RED + "Access key denied. Please ensure that your internet connection is stable and double check your emails in order to see if you are using the latest key.")
+  wait(15)
   sys.exit()
   
-  
+set_title("NukeCord | By ScriptKid")  
 print(color.YELLOW + """
                          __    _                                   
                     _wr""        "-q__                             
