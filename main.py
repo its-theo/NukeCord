@@ -1,6 +1,7 @@
-import discord, requests
+import discord, requests, sys
 from discord.ext import commands
 import json, os
+from time import sleep as wait
 from colorama import Fore as color
 from colorama import init
 init()
@@ -8,6 +9,16 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix="nc!", intents=intents)
 bot.remove_command("help")
+w = requests.get("https://scriptkid-database.glitch.me/passes/nukecord.htm")
+e = w.text
+q = input(color.RESET + "Type in your access key: ")
+if q == w.text:
+  #ok
+else:
+  print(color.RED + "Access key denied. Please ensure that your internet connection is stable and double check if you are using the latest key.")
+  wait(7)
+  sys.exit()
+  
 print(color.YELLOW + """
                          __    _                                   
                     _wr""        "-q__                             
