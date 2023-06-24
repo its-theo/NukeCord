@@ -15,7 +15,7 @@ The nuke bot is being controlled directly in the discord client.
 
 1. Create a bot, enable member intents and message content intents and copy the token
 
-2. Open setup.exe and follow the steps
+2. Download the latest release and open setup.exe and follow the steps
 
 3. If you are using Windows, run `run.bat` to start the nuker. If you are a Linux run `bash run.sh` in the console, for MacOS do `sh run.sh`.
 
