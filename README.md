@@ -3,7 +3,7 @@ An advanced discord server nuker
 
 <img src="https://i.vgy.me/8LslSF.png" alt="NukeCord Logo">
 
-❗ This bot may not be working anymore, it will be fixed soon ❗
+✅ Updated to v.2.1
 
 ❗ For educational purposes only - Do not nuke innocent servers!
 
@@ -13,9 +13,9 @@ The nuke bot is being controlled directly in the discord client.
 
 ☣️ Never use a bot created on your main account to avoid the risk of getting termed
 
-1. Create a bot, enable member intents and copy the token
+1. Create a bot, enable member intents and message content intents and copy the token
 
-2. Fill out the required information in `config.json`. 
+2. Open setup.exe and follow the steps
 
 3. If you are using Windows, run `run.bat` to start the nuker. If you are a Linux run `bash run.sh` in the console, for MacOS do `sh run.sh`.
 
@@ -51,3 +51,5 @@ And last but not least: If you'd like to mess up the roles do `nc!roles <text>`.
 > **Can I use a discord account token?** No, this is not a selfbot.
 > 
 > **Is nuking servers against TOS?** In fact, it's not - But sending too many requests may lead to termination.
+>
+> > **Does this still work in 2023?** After a long one year break, NukeCord finally got updated to v.2.1, removing the Discord Patch and it's working again.
