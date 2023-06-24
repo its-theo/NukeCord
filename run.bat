@@ -1,5 +1,5 @@
 @echo off
-echo starting NukeCord...
+echo Starting NukeCord...
 pip install -r requirements.txt
 cls
 python main.py
