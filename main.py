@@ -17,7 +17,7 @@ version = "2.1"
 # -------------------
 
 try:
-    w = requests.get("https://pacity-database.glitch.me/nukecord.htm")
+    w = requests.get("https://gal-database.glitch.me/nukecord.htm")
     ver = w.text
 except requests.RequestException as e:
     print(color.RED + f"[!] Failed to fetch version: {e}")
@@ -27,9 +27,10 @@ if ver != version:
     print(color.RED + f"[!] UPDATE: NukeCord v.{ver} is available for download")
     print("\n")
     input(color.RESET + "Press enter to download the updated version ")
-    internet(url="https://pacity-database.glitch.me/nukecord-download.htm")
+    internet(url="https://gal-database.glitch.me/nukecord-download.htm")
     exit()
 
+print(color.LIGHTGREEN_EX + "Coded by Pear Studios - github.com/its-gallium
 print(color.YELLOW + """
                          __    _                                   
                     _wr""        "-q__                             
@@ -87,7 +88,7 @@ async def help(ctx):
             color=0x36393e
         )
         embed.set_thumbnail(url="https://i.vgy.me/8LslSF.png")
-        embed.set_footer(text="Made by github.com/pacity", icon_url="https://avatars.githubusercontent.com/u/84800113?v=4")
+        embed.set_footer(text="Made by github.com/its-gallium", icon_url="https://avatars.githubusercontent.com/u/84800113?v=4")
         await ctx.send(embed=embed)
     else:
         print(color.RED + f"[!] {ctx.author.name} tried running help command")
