@@ -30,7 +30,7 @@ if ver != version:
     internet(url="https://gal-database.glitch.me/nukecord-download.htm")
     exit()
 
-print(color.LIGHTGREEN_EX + "Coded by Pear Studios - github.com/its-gallium
+print(color.LIGHTGREEN_EX + "Coded by Pear Studios - github.com/its-gallium")
 print(color.YELLOW + """
                          __    _                                   
                     _wr""        "-q__                             
